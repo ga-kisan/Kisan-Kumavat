@@ -31,7 +31,7 @@ const Home = () => {
   const getRandomAsteroidId = async () => {
     const response: any = await axios.get(RANDOM_URL);
     const asteroids = response.data.near_earth_objects;
-    const id = asteroids[Math.floor(Math.random() * asteroids.length + 1)].id;
+    const id = asteroids[Math.floor(Math.random() * asteroids.length)].id;
     const url = `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=${API_KEY}`;
     getAsteroidData(url);
   };

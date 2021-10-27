@@ -12,7 +12,6 @@ import { useHistory } from "react-router";
 
 const Country = () => {
   const countries: any = useSelector((state) => {
-    console.log(state);
     return state;
   });
   const history = useHistory();
@@ -23,7 +22,7 @@ const Country = () => {
     >
       {countries.map((country: any) => {
         return (
-          <Card sx={{ width: 245, marginBottom: 10 }}>
+          <Card key={country.name} sx={{ width: 245, marginBottom: 10 }}>
             <CardMedia
               component="img"
               height="140"

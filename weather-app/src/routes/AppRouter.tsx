@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Capital from "../pages/Capital";
 
-import Country from "../pages/Country";
-import Home from "../pages/Home";
+import Capital from "../components/Capital";
+import Country from "../components/Country";
+import Home from "../components/Home";
 
 const AppRouter = () => {
   return (

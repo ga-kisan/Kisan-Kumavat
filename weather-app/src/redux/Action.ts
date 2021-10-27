@@ -6,7 +6,3 @@ const storeCountryData = (data: any) => {
 };
 
 export default storeCountryData;
-
-// console.log("hwsdkj");
-
-// export {};

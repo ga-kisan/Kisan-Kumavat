@@ -3,8 +3,8 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import Form from "../components/Form";
-import storeCountryData from "../action";
+import Form from "./Form";
+import storeCountryData from "../redux/Action";
 
 const Home = () => {
   const [country, setCountry] = useState("");
@@ -20,13 +20,12 @@ const Home = () => {
   };
 
   const fetchCountryData = async () => {
-    axios
+    await axios
       .get(URL)
       .then((response) => response.status && response.data)
       .then((data) => {
         dispatch(storeCountryData(data));
         history.push("/country");
-        console.log(history);
       });
   };
 

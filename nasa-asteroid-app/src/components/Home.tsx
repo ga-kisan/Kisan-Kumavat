@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import { addData } from "../action";
+import { addData } from "../redux/Action";
 import Form from "../components/Form";
 
 const Home = () => {
@@ -56,7 +56,7 @@ const Home = () => {
           alert("Please enter valid ID!");
         }
       })
-      .catch((err) => alert(err));
+      .catch((err) => alert("Please enter valid ID!"));
   };
 
   return (

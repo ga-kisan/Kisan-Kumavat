@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {
   asteroidId: string;
@@ -9,6 +9,8 @@ type Props = {
 
 const Form = (props: Props) => {
   const { asteroidId, setAsteroidId, onFormSubmit, onRandomClick } = props;
+  const [randomClicked, setRandomClicked] = useState(false);
+
   return (
     <form className="w-50" onSubmit={(e) => onFormSubmit(e)}>
       <label htmlFor="id">Asteroid ID</label>
@@ -29,7 +31,11 @@ const Form = (props: Props) => {
         </button>
         <button
           className="btn btn-danger w-50 ms-3"
-          onClick={(e) => onRandomClick(e)}
+          disabled={randomClicked}
+          onClick={(e) => {
+            onRandomClick(e);
+            setRandomClicked(true);
+          }}
         >
           Random Asteroid
         </button>

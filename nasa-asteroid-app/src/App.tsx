@@ -1,12 +1,9 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-import dataReducer from "./dataReducer";
-import Home from "./pages/Home";
-import Asteroid from "./pages/Asteroid";
-
-const store = createStore(dataReducer);
+import Home from "./components/Home";
+import Asteroid from "./components/Asteroid";
+import store from "./redux/Store";
 
 function App() {
   return (

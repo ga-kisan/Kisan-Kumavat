@@ -21,8 +21,6 @@ const Country = () => {
       sx={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }}
     >
       {countries.map((country: any) => {
-        console.log(country);
-
         return (
           <Card key={country.name} sx={{ width: 245, marginBottom: 10 }}>
             <CardMedia

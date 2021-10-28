@@ -1,10 +1,6 @@
-import { createStore } from "redux";
 import { Provider } from "react-redux";
-
+import store from "./redux/Store";
 import AppRouter from "./routes/AppRouter";
-import reducers from "./reducers/reducers";
-
-const store = createStore(reducers);
 
 function App() {
   return (

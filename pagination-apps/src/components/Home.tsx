@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addPosts } from "../actions/allPosts";
-import { setCurrentPage, setTotalPage } from "../actions/pageValues";
-import Table from "../components/Table";
+import { addPosts } from "../redux/actions/AllPosts";
+import { setCurrentPage, setTotalPage } from "../redux/actions/PageValues";
+import Table from "./Table";
 
 type State = {
   pageValues: {
@@ -34,7 +34,9 @@ const Home = () => {
     if (data.hits.length > 0) {
       dispatch(addPosts(data.hits));
       dispatch(setTotalPage());
-      dispatch(setCurrentPage(1));
+      if (pageValues.totalPage === 0) {
+        dispatch(setCurrentPage(1));
+      }
     }
   };
 

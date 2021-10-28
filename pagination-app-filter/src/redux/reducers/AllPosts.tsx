@@ -5,7 +5,7 @@ type Action = {
 
 const initialState: [] = [];
 
-const allPosts = (posts = initialState, action: Action) => {
+const AllPosts = (posts = initialState, action: Action) => {
   switch (action.type) {
     case "ADD_POSTS":
       return [...posts, ...action.payload];
@@ -14,4 +14,4 @@ const allPosts = (posts = initialState, action: Action) => {
   }
 };
 
-export default allPosts;
+export default AllPosts;

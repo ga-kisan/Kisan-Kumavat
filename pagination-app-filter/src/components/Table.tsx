@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import moment from "moment";
 import Modal from "react-modal";
 
-import Post from "../pages/Post";
+import Post from "./Post";
 
 type State = {
   allPosts: any[];
@@ -52,7 +53,7 @@ const Table = ({ pageValues }: Props) => {
   Modal.setAppElement("#root");
 
   return (
-    <div>
+    <div className="w-100">
       <div className="d-flex my-5">
         <input
           className="form-control"
@@ -76,19 +77,31 @@ const Table = ({ pageValues }: Props) => {
           )}
         </button>
       </div>
-      <table className="table">
+      <table style={{ tableLayout: "fixed" }} className="w-100 border table">
         <thead>
           <tr>
-            <th scope="col">Title</th>
-            <th scope="col">URL</th>
-            <th scope="col">Created At</th>
-            <th scope="col">Author</th>
+            <th style={{ width: "25%" }} scope="col">
+              Title
+            </th>
+            <th style={{ width: "50%" }} scope="col">
+              URL
+            </th>
+            <th style={{ width: "15%" }} scope="col">
+              Created At
+            </th>
+            <th style={{ width: "10%" }} scope="col">
+              Author
+            </th>
           </tr>
         </thead>
         <tbody>
           {currentPosts.map((post) =>
             filter.query ? (
-              post.title.toLowerCase().includes(filter.query.toLowerCase()) ? (
+              post.title.toLowerCase().includes(filter.query.toLowerCase()) ||
+              moment(post.created_at_i)
+                .format("MMM Do YYYY, h:mm:ss a")
+                .toLowerCase()
+                .includes(filter.query.toLowerCase()) ? (
                 <tr
                   key={post.objectID}
                   onClick={() => {
@@ -96,14 +109,14 @@ const Table = ({ pageValues }: Props) => {
                     setIsModalOpen(true);
                   }}
                 >
-                  <th scope="row">{post.title}</th>
-                  <td>{post.url}</td>
-                  <td>{`${new Date(post.created_at_i).getHours()}/${new Date(
-                    post.created_at_i
-                  ).getMinutes()}/${new Date(
-                    post.created_at_i
-                  ).getSeconds()}`}</td>
-                  <td>{post.author}</td>
+                  <th style={{ width: "25%" }} scope="row">
+                    {post.title}
+                  </th>
+                  <td style={{ width: "50%" }}>{post.url}</td>
+                  <td style={{ width: "15%" }}>
+                    {moment(post.created_at_i).format("MMM Do YYYY, h:mm:ss a")}
+                  </td>
+                  <td style={{ width: "10%" }}>{post.author}</td>
                 </tr>
               ) : null
             ) : (
@@ -114,14 +127,14 @@ const Table = ({ pageValues }: Props) => {
                   setIsModalOpen(true);
                 }}
               >
-                <th scope="row">{post.title}</th>
-                <td>{post.url}</td>
-                <td>{`${new Date(post.created_at_i).getHours()}:${new Date(
-                  post.created_at_i
-                ).getMinutes()}:${new Date(
-                  post.created_at_i
-                ).getSeconds()}`}</td>
-                <td>{post.author}</td>
+                <th style={{ width: "25%" }} scope="row">
+                  {post.title}
+                </th>
+                <td style={{ width: "50%" }}>{post.url}</td>
+                <td style={{ width: "15%" }}>
+                  {moment(post.created_at_i).format("MMM Do YYYY, h:mm:ss a")}
+                </td>
+                <td style={{ width: "10%" }}>{post.author}</td>
               </tr>
             )
           )}

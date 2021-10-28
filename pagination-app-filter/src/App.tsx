@@ -1,10 +1,7 @@
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-import reducers from "./reducers/reducers";
-import Home from "./pages/Home";
-
-const store = createStore(reducers);
+import Home from "./components/Home";
+import store from "./redux/Store";
 
 function App() {
   return (

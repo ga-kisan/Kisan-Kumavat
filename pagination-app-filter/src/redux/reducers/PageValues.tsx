@@ -13,7 +13,7 @@ const initialValues = {
   currentPage: 0,
 };
 
-const pageValues = (values: Values = initialValues, action: Action) => {
+const PageValues = (values: Values = initialValues, action: Action) => {
   switch (action.type) {
     case "SET_TOTAL_PAGE":
       console.log("page re action", action);
@@ -29,4 +29,4 @@ const pageValues = (values: Values = initialValues, action: Action) => {
   }
 };
 
-export default pageValues;
+export default PageValues;

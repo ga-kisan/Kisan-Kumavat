@@ -21,6 +21,8 @@ const Country = () => {
       sx={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }}
     >
       {countries.map((country: any) => {
+        console.log(country);
+
         return (
           <Card key={country.name} sx={{ width: 245, marginBottom: 10 }}>
             <CardMedia
@@ -40,7 +42,7 @@ const Country = () => {
                 Population: {country.population}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Lat,Lng: {`${country.latlng[0]}, ${country.latlng[1]}`}
+                Lat,Lng: {`${country.latlng}`}
               </Typography>
             </CardContent>
             <CardActions>

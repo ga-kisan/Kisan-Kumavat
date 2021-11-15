@@ -9,7 +9,7 @@ test("Should set quiz language to English", () => {
   expect(state).toEqual(data.English);
 });
 
-test("Should set quiz language to Hidni", () => {
+test("Should set quiz language to Hindi", () => {
   const state = questions([], {
     type: "SET_HINDI_LANGUAGE",
     payload: "Hindi",

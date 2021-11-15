@@ -32,7 +32,7 @@ const UserForm = () => {
     language: "",
   });
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (
@@ -40,7 +40,7 @@ const UserForm = () => {
       userData.language !== "" &&
       userData.gender !== ""
     ) {
-      // navigate("/questions");
+      navigate("/questions");
     }
   }, []);
 
@@ -52,7 +52,7 @@ const UserForm = () => {
     } else {
       dispatch(setEnglishLanguage());
     }
-    // navigate("/questions");
+    navigate("/questions");
   };
 
   return (
@@ -67,7 +67,7 @@ const UserForm = () => {
       <form onSubmit={handleSubmit}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
-            <Typography align="center" variant="h3">
+            <Typography data-testid="form-heading" align="center" variant="h3">
               Register Yourself
             </Typography>
           </Grid>

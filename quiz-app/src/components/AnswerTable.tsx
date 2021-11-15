@@ -15,7 +15,7 @@ type Props = {
 const AnswerTable = ({ questions }: Props) => {
   return (
     <Container sx={{ marginTop: 5, border: "1px solid lightgray" }}>
-      <Table sx={{ tableLayout: "fixed" }}>
+      <Table data-testid="table" sx={{ tableLayout: "fixed" }}>
         <TableHead>
           <TableRow>
             <TableCell sx={{ fontWeight: "bold" }}>Question</TableCell>
